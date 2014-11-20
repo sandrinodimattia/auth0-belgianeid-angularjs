@@ -1,0 +1,30 @@
+﻿@model SampleApp.Models.Saml2Response
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Accept-Charset" content="utf-8; q=0.8" />
+    <title>Redirecting...</title>
+</head>
+<body>
+    <div id="content">
+        <h2>Navigating back to web application...</h2>
+        <p>This page will automatically navigate you back to your web application.</p>
+        <form id="response-form" method="post" action="https://@(Model.AccountName).auth0.com/login/callback" accept-charset="UTF-8">
+            <input type="hidden" name="SAMLResponse" value="@Model.Content" />
+            <noscript>
+                <input type="submit" value="Submit" />
+            </noscript>
+        </form>
+        <script type="text/javascript">
+            document.getElementById('response-form').submit();
+        </script>
+    </div>
+</body>
+</html>
+

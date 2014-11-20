@@ -1,0 +1,8 @@
+<div>
+  <br />
+    <h2>Your picture (be:fedict:eid:idp:photo)</h2>
+    <img src="data:image/jpeg;base64,{{ auth.profile['be:fedict:eid:idp:photo'] }}">
+    <h2>Your profile</h2>
+    <pre><code>{{auth.profile | json}}</code></pre>
+</div>
+
